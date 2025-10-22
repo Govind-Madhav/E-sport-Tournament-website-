@@ -1,5 +1,8 @@
 🎮 Esports Tournament Website (Monorepo)
 
+
+
+
 A full-stack Esports tournament website with Java Spring Boot backend and Vite + React frontend. Organized under Esports Tournament Website/CODE/.
 
 🗂 Project Layout
@@ -104,3 +107,4 @@ Ayush Kulasari — Financial Support
 📄 License
 
 This project is open for internal use. Update or include a proper license if sharing publicly.
+

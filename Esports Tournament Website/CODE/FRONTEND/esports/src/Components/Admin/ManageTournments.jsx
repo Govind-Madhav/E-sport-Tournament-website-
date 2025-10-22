@@ -116,7 +116,7 @@ const ManageTournamentsPage = () => {
               {tournaments.map(tournament => (
                 <div key={tournament.id} className="p-6 rounded-lg shadow-lg bg-gray-700">
                   <img
-                    src={tournament.imageUrl || '/public/tourn1.avif'}
+                    src={tournament.imageUrl || '/tourn1.avif'}
                     alt={tournament.name}
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />

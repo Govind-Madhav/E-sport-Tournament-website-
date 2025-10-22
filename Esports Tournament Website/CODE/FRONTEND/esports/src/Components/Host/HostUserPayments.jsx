@@ -80,7 +80,7 @@ const HostUserPayments = () => {
             ) : (
               transactions.map(transaction => (
                 <div key={transaction.transactionId} className={`bg-gray-700 p-6 rounded-lg shadow-lg ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>
-                  <img src={"public/payment1.avif"} alt="Tournament" className="w-full h-48 object-cover rounded-lg mb-4" />
+                  <img src={"/payment1.avif"} alt="Tournament" className="w-full h-48 object-cover rounded-lg mb-4" />
                   <h4 className="text-xl font-semibold mb-2">{`Tournament ID: ${transaction.tournamentId}`}</h4>
                   <p className="mb-2"><strong>Transaction ID:</strong> {transaction.transactionId}</p>
                   <p className="mb-2"><strong>User ID:</strong> {transaction.playerId}</p>

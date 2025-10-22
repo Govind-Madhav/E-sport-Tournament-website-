@@ -162,7 +162,7 @@ const PaidTournamentsPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {paidTournaments.length > 0 ? paidTournaments.map((tournament) => (
               <div key={tournament.id} className="bg-gray-700 p-6 rounded-lg shadow-lg">
-                <img src={tournament.image || 'public/tourn1.avif'} alt={tournament.name} className="w-full h-48 object-cover rounded-lg mb-4" />
+                <img src={tournament.imageUrl || '/tourn1.avif'} alt={tournament.name} className="w-full h-48 object-cover rounded-lg mb-4" />
                 <h4 className="text-xl font-semibold mb-2">{tournament.name}</h4>
                 <p className="mb-2">{tournament.description}</p>
                 <p><strong>Host ID:</strong> {tournament.hostId}</p>

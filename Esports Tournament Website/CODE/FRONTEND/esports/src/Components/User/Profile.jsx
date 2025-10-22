@@ -142,7 +142,7 @@ const UserProfilePage = () => {
 
           <div className="flex flex-col items-center mb-8">
             <img 
-              src={user.profilePic || '/default-profile.png'} 
+              src={user.imageUrl || '/card1.avif'} 
               alt="Profile" 
               className="w-28 h-28 rounded-full object-cover border-4 border-yellow-400"
             />

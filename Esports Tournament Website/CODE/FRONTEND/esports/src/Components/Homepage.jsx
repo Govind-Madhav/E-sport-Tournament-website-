@@ -668,7 +668,7 @@ const HomePage = () => {
                     className={`${darkMode ? 'bg-[#1e293b] border-gray-700' : 'bg-white border-gray-200'} p-6 rounded-2xl shadow-lg border hover:border-[#00FFFF]/60 transition`}
                   >
                     <img
-                      src={tournament.imageUrl || "/img1.png"}
+                 src={tournament.imageUrl ? `http://localhost:8080/${tournament.imageUrl}` : "/tourn1.avif"}
                       alt={tournament.name}
                       className="rounded-xl mb-4 h-40 w-full object-cover"
                     />
@@ -712,7 +712,7 @@ const HomePage = () => {
                     className={`${darkMode ? 'bg-[#111827] border-gray-700' : 'bg-white border-gray-200'} p-6 rounded-2xl shadow-lg border hover:border-[#00FFFF]/60 transition`}
                   >
                     <img
-                      src={tournament.imageUrl || "/img2.png"}
+                      src={tournament.imageUrl || "/tourn1.avif"}
                       alt={tournament.name}
                       className="rounded-xl mb-4 h-40 w-full object-cover"
                     />

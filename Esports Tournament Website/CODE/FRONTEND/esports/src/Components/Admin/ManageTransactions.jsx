@@ -79,7 +79,7 @@ const ManageTransactionsPage = () => {
           ) : transactions.length > 0 ? (
             transactions.map((transaction, index) => (
               <div key={index} className={`bg-gray-700 p-6 rounded-lg shadow-lg ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>
-                <img src={"public/payment1.avif"} alt="Payment" className="w-full h-48 object-cover rounded-lg mb-4" />
+                <img src={"/payment1.avif"} alt="Payment" className="w-full h-48 object-cover rounded-lg mb-4" />
                 <h4 className="text-xl font-semibold mb-2">{`Player ID: ${transaction.playerId}`}</h4>
                 <p className="mb-2"><strong>Tournament ID:</strong> {transaction.tournamentId}</p>
                 <p className="mb-2"><strong>Amount:</strong> ₹{transaction.amount}</p>
