@@ -22,7 +22,7 @@ const PaidTournamentsPage = () => {
     const fetchPaidTournaments = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:8080/api/player/paid-tournaments/${playerId}`);
+  const response = await axios.get(`/api/player/paid-tournaments/${playerId}`);
         if (response.data.status === 'success') {
           setPaidTournaments(response.data.data); // Assuming the data is under 'data' key
         } else {

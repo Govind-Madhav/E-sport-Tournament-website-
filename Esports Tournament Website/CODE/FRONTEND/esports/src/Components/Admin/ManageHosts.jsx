@@ -29,19 +29,19 @@ const ManageHostsPage = () => {
   };
 
   const fetchPendingHosts = async () => {
-    const res = await axios.get('http://localhost:8080/api/admin/pending-hosts');
+  const res = await axios.get('/api/admin/pending-hosts');
     setPendingHosts(res.data.data || []);
   };
 
   const fetchApprovedHosts = async () => {
-    const res = await axios.get('http://localhost:8080/api/admin/verified-hosts');
+  const res = await axios.get('/api/admin/verified-hosts');
     setApprovedHosts(res.data.data || []);
   };
 
   const handleApprove = async (id) => {
     try {
       setButtonLoadingId(id);
-      await axios.put(`http://localhost:8080/api/admin/approve-host/${id}`);
+  await axios.put(`/api/admin/approve-host/${id}`);
       toast.success('Host approved successfully!', { autoClose: 2000 });
       refreshData();
       fetchApprovedHosts();
@@ -56,7 +56,7 @@ const ManageHostsPage = () => {
   const handleReject = async (id) => {
     try {
       setButtonLoadingId(id);
-      await axios.delete(`http://localhost:8080/api/admin/delete-host/${id}`);
+  await axios.delete(`/api/admin/delete-host/${id}`);
       toast.success('Host rejected and deleted!', { autoClose: 2000 });
       refreshData();
       fetchApprovedHosts();

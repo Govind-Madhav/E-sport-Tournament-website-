@@ -14,7 +14,7 @@ const LeaderboardPage = () => {
     const fetchLeaderboard = async () => {
       try {
         const tournamentId = 1; // Replace with actual tournamentId or pass it dynamically
-        const response = await axios.get(`http://localhost:8080/api/player/view-leaderboard/${tournamentId}`);
+  const response = await axios.get(`/api/player/view-leaderboard/${tournamentId}`);
         if (response.data && response.data.data) {
           setPlayers(response.data.data);  // Set players data
         } else {

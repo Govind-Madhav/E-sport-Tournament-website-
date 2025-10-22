@@ -73,7 +73,7 @@ const UserProfilePage = () => {
         formDataToSend.append('file', profilePic);
       }
 
-      const response = await axios.put(`http://localhost:8080/api/player/update-profile/${userId}`, formDataToSend);
+  const response = await axios.put(`/api/player/update-profile/${userId}`, formDataToSend);
       
       if (response.data.status === 'success') {
         const updatedPlayer = response.data.data;

@@ -26,7 +26,7 @@ const HostUserPayments = () => {
 
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:8080/api/host/payments/${hostId}`);
+  const response = await axios.get(`/api/host/payments/${hostId}`);
         setTransactions(response.data); // Update state with the fetched payments
       } catch (error) {
         console.error(error);

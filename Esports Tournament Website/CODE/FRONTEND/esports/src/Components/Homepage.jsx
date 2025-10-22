@@ -60,7 +60,7 @@ const HomePage = () => {
         
         // Try to fetch from backend first
         try {
-          const response = await axios.get('http://localhost:8080/api/player/homepage-tournaments');
+          const response = await axios.get('/api/player/homepage-tournaments');
           
           if (response.data.status === 'success') {
             setTournaments(response.data.data);
@@ -172,11 +172,11 @@ const HomePage = () => {
         // Try unified login first (for players and hosts)
         let response;
         try {
-            response = await axios.post("http://localhost:8080/api/player/unified-login", loginData);
+            response = await axios.post("/api/player/unified-login", loginData);
         } catch (unifiedError) {
             // If unified login fails, try admin login
             if (loginEmail === "admin@gmail.com") {
-                response = await axios.post("http://localhost:8080/api/player/admin-login", loginData);
+                response = await axios.post("/api/player/admin-login", loginData);
             } else {
                 throw unifiedError;
             }
@@ -269,9 +269,9 @@ const HomePage = () => {
     let registerUrl = "";
 
     if (selectedRole === 'host') {
-      registerUrl = "http://localhost:8080/api/host/register";
+  registerUrl = "/api/host/register";
     } else if (selectedRole === 'player') {
-      registerUrl = "http://localhost:8080/api/player/register";
+  registerUrl = "/api/player/register";
     } else {
       toast.error("Only Host or Player registration is allowed!");
       return;
@@ -325,9 +325,9 @@ const HomePage = () => {
     let forgotUrl = "";
 
     if (selectedRole === 'host') {
-      forgotUrl = "http://localhost:8080/api/host/forgot-password";
+  forgotUrl = "/api/host/forgot-password";
     } else if (selectedRole === 'player') {
-      forgotUrl = "http://localhost:8080/api/player/forgot-password";
+  forgotUrl = "/api/player/forgot-password";
     } else {
       toast.error("Forgot password only allowed for Host or Player!");
       return;
@@ -668,7 +668,7 @@ const HomePage = () => {
                     className={`${darkMode ? 'bg-[#1e293b] border-gray-700' : 'bg-white border-gray-200'} p-6 rounded-2xl shadow-lg border hover:border-[#00FFFF]/60 transition`}
                   >
                     <img
-                 src={tournament.imageUrl ? `http://localhost:8080/${tournament.imageUrl}` : "/tourn1.avif"}
+                 src={tournament.imageUrl || "/tourn1.avif"}
                       alt={tournament.name}
                       className="rounded-xl mb-4 h-40 w-full object-cover"
                     />

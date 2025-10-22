@@ -19,7 +19,7 @@ const ManageTournamentsPage = () => {
   const fetchTournaments = async () => {
     try {
       setFetchLoading(true);
-      const res = await axios.get('http://localhost:8080/api/admin/get-tournaments');
+  const res = await axios.get('/api/admin/get-tournaments');
       setTournaments(res.data.data || []);
     } catch (error) {
       console.error('Error fetching tournaments:', error);
@@ -32,7 +32,7 @@ const ManageTournamentsPage = () => {
   const toggleTournamentStatus = async (id, isActive) => {
     try {
       setLoadingId(id);
-      await axios.put(`http://localhost:8080/api/admin/toggle-tournament-status/${id}?isActive=${isActive}`);
+  await axios.put(`/api/admin/toggle-tournament-status/${id}?isActive=${isActive}`);
       toast.success(`Tournament ${isActive ? 'activated' : 'deactivated'} successfully!`);
       fetchTournaments();
     } catch (error) {
@@ -46,7 +46,7 @@ const ManageTournamentsPage = () => {
   const deleteTournament = async (id) => {
     try {
       setLoadingId(id);
-      await axios.delete(`http://localhost:8080/api/admin/delete-tournament/${id}`);
+  await axios.delete(`/api/admin/delete-tournament/${id}`);
       toast.success('Tournament deleted successfully!');
       fetchTournaments();
     } catch (error) {

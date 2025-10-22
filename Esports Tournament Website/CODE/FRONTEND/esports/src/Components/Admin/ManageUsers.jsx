@@ -27,19 +27,19 @@ const ManageUsersPage = () => {
   };
 
   const fetchPendingUsers = async () => {
-    const res = await axios.get('http://localhost:8080/api/admin/pending-players');
+  const res = await axios.get('/api/admin/pending-players');
     setPendingUsers(res.data.data || []);
   };
 
   const fetchApprovedUsers = async () => {
-    const res = await axios.get('http://localhost:8080/api/admin/verified-players');
+  const res = await axios.get('/api/admin/verified-players');
     setApprovedUsers(res.data.data || []);
   };
 
   const handleApprove = async (id) => {
     try {
       setButtonLoadingId(id);
-      await axios.put(`http://localhost:8080/api/admin/approve-player/${id}`);
+  await axios.put(`/api/admin/approve-player/${id}`);
       toast.success('Player approved successfully!', { autoClose: 2000 });
       refreshData();
     } catch (error) {
@@ -53,7 +53,7 @@ const ManageUsersPage = () => {
   const handleReject = async (id) => {
     try {
       setButtonLoadingId(id);
-      await axios.delete(`http://localhost:8080/api/admin/delete-player/${id}`);
+  await axios.delete(`/api/admin/delete-player/${id}`);
       toast.success('Player rejected and deleted!', { autoClose: 2000 });
       refreshData();
     } catch (error) {

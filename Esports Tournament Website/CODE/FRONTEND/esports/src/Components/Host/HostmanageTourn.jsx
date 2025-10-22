@@ -35,7 +35,7 @@ const ManageTournamentsPage = () => {
       }
   
       try {
-        const res = await axios.get(`http://localhost:8080/api/host/get-tournaments/${hostId}`);
+  const res = await axios.get(`/api/host/get-tournaments/${hostId}`);
         setTournaments(res.data.data || []);
       } catch (err) {
         console.error(err);
@@ -57,7 +57,7 @@ const ManageTournamentsPage = () => {
         return;
       }
   
-      const res = await axios.get(`http://localhost:8080/api/host/get-tournaments/${hostId}`);
+  const res = await axios.get(`/api/host/get-tournaments/${hostId}`);
       setTournaments(res.data.data || []);
     } catch (err) {
       console.error(err);
@@ -78,7 +78,7 @@ const ManageTournamentsPage = () => {
     e.preventDefault();
     try {
       if (editing) {
-        await axios.put(`http://localhost:8080/api/host/update-tournament/${editId}`, formData);
+  await axios.put(`/api/host/update-tournament/${editId}`, formData);
         toast.success('Tournament updated successfully!');
       } else {
         const form = new FormData();
@@ -89,7 +89,7 @@ const ManageTournamentsPage = () => {
         form.append('gameType', formData.gameType);
         form.append('joiningFee', formData.joiningFee);
         form.append('file', null); // optional file upload (if you have)
-        await axios.post(`http://localhost:8080/api/host/create-tournament/${hostId}`, form);
+  await axios.post(`/api/host/create-tournament/${hostId}`, form);
         toast.success('Tournament created successfully!');
       }
       resetForm();
@@ -118,7 +118,7 @@ const ManageTournamentsPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/admin/delete-tournament/${id}`);
+  await axios.delete(`/api/admin/delete-tournament/${id}`);
       toast.success('Tournament deleted successfully!');
       fetchTournaments();
     } catch (err) {

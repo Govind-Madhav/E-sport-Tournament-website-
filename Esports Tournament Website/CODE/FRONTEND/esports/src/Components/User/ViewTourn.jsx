@@ -24,7 +24,7 @@ const PaymentPage = () => {
   useEffect(() => {
     const fetchTournaments = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/player/active-tournaments');
+  const response = await axios.get('/api/player/active-tournaments');
         if (response.data.status === 'success') {
           setTournaments(response.data.data);
         } else {
@@ -40,7 +40,7 @@ const PaymentPage = () => {
   // Step 1: First Join the tournament
   const handleJoinTournament = async (tournament) => {
     try {
-      const response = await axios.post(`http://localhost:8080/api/player/join/${playerId}/${tournament.id}`);
+  const response = await axios.post(`/api/player/join/${playerId}/${tournament.id}`);
       if (response.data.status === 'success') {
         toast.success('Successfully requested to join tournament!');
         setSelectedTournament(tournament);
@@ -73,7 +73,7 @@ const PaymentPage = () => {
     };
 
     try {
-      const response = await axios.post(`http://localhost:8080/api/player/make-payment/${playerId}/${selectedTournament.id}`, paymentData);
+  const response = await axios.post(`/api/player/make-payment/${playerId}/${selectedTournament.id}`, paymentData);
       if (response.data.status === 'success') {
         setPaymentSuccess(true);
         setTimeout(() => {

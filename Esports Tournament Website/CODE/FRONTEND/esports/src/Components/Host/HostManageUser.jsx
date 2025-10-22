@@ -21,7 +21,7 @@ const HostManageUser = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:8080/api/host/players/${inputTournamentId}`);
+  const response = await axios.get(`/api/host/players/${inputTournamentId}`);
       if (response.data.status === 'success') {
         const playersWithStatus = response.data.data.map(player => ({
           ...player,
@@ -41,7 +41,7 @@ const HostManageUser = () => {
 
   const handleApprove = async (playerId) => {
     try {
-      await axios.put(`http://localhost:8080/api/host/approve-reject/${playerId}/${tournamentId}?isApproved=true`);
+  await axios.put(`/api/host/approve-reject/${playerId}/${tournamentId}?isApproved=true`);
       setUsers(users.map(user => user.id === playerId ? { ...user, status: 'Approved' } : user));
       toast.success('Player approved successfully!');
     } catch (error) {
@@ -52,7 +52,7 @@ const HostManageUser = () => {
 
   const handleReject = async (playerId) => {
     try {
-      await axios.put(`http://localhost:8080/api/host/approve-reject/${playerId}/${tournamentId}?isApproved=false`);
+  await axios.put(`/api/host/approve-reject/${playerId}/${tournamentId}?isApproved=false`);
       setUsers(users.map(user => user.id === playerId ? { ...user, status: 'Rejected' } : user));
       toast.success('Player rejected successfully!');
     } catch (error) {
